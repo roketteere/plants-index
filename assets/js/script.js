@@ -60,40 +60,93 @@ let getQuote = fetch(
 
 // create and append plant information
 
+// create and append plant information
+
 function displayPlantInfo(plantArray) {
-    plantArray.forEach(function (plant) {
+  plantArray.forEach(function (plant) {
+    var plantCard = document.createElement("div");
+    plantCard.classList.add("col", "s6", "m4", "xl2");
+    var card = document.createElement("div");
+    card.classList.add("card", "hoverable");
+    var cardImage = document.createElement("div");
+    cardImage.classList.add(
+      "card-image",
+      "waves-effect",
+      "waves-block",
+      "waves-light"
+    );
+    var plantImage = document.createElement("img");
+    plantImage.classList.add("activator", "plant-image");
+    plantImage.setAttribute("src", plant.imageUrl);
+    var cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+    var cardTitle = document.createElement("span");
+    cardTitle.classList.add(
+      "card-title",
+      "activator",
+      "grey-text",
+      "text-darken-4",
+      "truncate"
+    );
+    var icon = document.createElement("i");
+    icon.classList.add("material-icons", "right");
+    icon.textContent = "more_vert";
+    var scienceName = document.createElement("p");
+    scienceName.classList.add("truncate");
+    var cardReveal = document.createElement("div");
+    cardReveal.classList.add("card-reveal");
+    var cardTitleReveal = document.createElement("span");
+    cardTitleReveal.classList.add("card-title", "grey-text", "text-darken-4");
+    var closeReveal = document.createElement("i");
+    closeReveal.classList.add("material-icons", "right");
+    closeReveal.textContent = "close";
+    var infoReveal = document.createElement("p");
+    var revealContent = document.createElement("div");
+    revealContent.classList.add("reveal-content");
+    var revealRowDark = document.createElement("div");
+    revealRowDark.classList.add("list-row-dark");
+    var revealRowLight = document.createElement("div");
+    revealRowDark.classList.add("list-row-light");
+    var rowUpperLeft = document.createElement("div");
+    rowUpperLeft.classList.add("column-text-list1");
+    var rowUpperRight = document.createElement("div");
+    rowUpperRight.classList.add("column-text-list2");
+    var rowLowerLeft = document.createElement("div");
+    rowLowerLeft.classList.add("column-text-list1");
+    var rowLowerRight = document.createElement("div");
+    rowLowerRight.classList.add("column-text-list2");
 
-        var plantCard = document.createElement("div")
-        plantCard.classList.add("col", "s6", "m4", "xl2", "plant-card");
-        var card = document.createElement("div")
-        card.classList.add("card", "hoverable", "rounded")
-        var cardImage = document.createElement("div")
-        cardImage.classList.add("card-image", "overflow", "plant-image")
-        var plantImage = document.createElement("img")
+    // append data
+    resultsPage.appendChild(plantCard);
+    plantCard.appendChild(card);
+    card.appendChild(cardImage);
+    cardImage.appendChild(plantImage);
+    card.appendChild(cardContent);
+    cardContent.appendChild(cardTitle);
+    cardTitle.appendChild(icon);
+    cardContent.appendChild(scienceName);
+    card.appendChild(cardReveal);
+    cardReveal.appendChild(cardTitleReveal);
+    cardTitleReveal.appendChild(closeReveal);
+    cardReveal.appendChild(infoReveal);
+    infoReveal.appendChild(revealContent);
+    revealContent.appendChild(revealRowDark);
+    revealRowDark.appendChild(rowUpperLeft);
+    revealRowDark.appendChild(rowUpperRight);
+    revealContent.appendChild(revealRowLight);
+    revealRowLight.appendChild(rowLowerLeft);
+    revealRowLight.appendChild(rowLowerRight);
 
-        plantImage.setAttribute("src", plant.imageUrl)
-        var cardContent = document.createElement("div")
-        cardContent.classList.add("card-content")
-        var cardTitle = document.createElement("span")
-        cardTitle.classList.add("card-title", "truncate")
-        var scienceName = document.createElement("p")
-        scienceName.classList.add("scientific-name", "truncate")
-
-        // append data
-        resultsPage.appendChild(plantCard)
-        plantCard.appendChild(card)
-        card.appendChild(cardImage)
-        cardImage.appendChild(plantImage)
-        card.appendChild(cardContent)
-        cardContent.appendChild(cardTitle)
-        cardContent.appendChild(scienceName)
-
-        // fill each section with plant data
-        plantImage.setAttribute("src", plant.plantImage)
-        cardTitle.textContent = plant.commonName
-        scienceName.textContent = plant.scientificName
-
-    })
+    // fill each section with plant data
+    plantImage.setAttribute("src", plant.plantImage);
+    cardTitle.textContent = plant.commonName;
+    scienceName.textContent = plant.scientificName;
+    cardTitleReveal.textContent = plant.commonName;
+    rowUpperLeft.textContent = "Family:";
+    rowUpperRight.textContent = plant.family;
+    rowLowerLeft.textContent = "Year Documented:";
+    rowLowerRight.textContent = plant.year;
+  });
 }
 
 
@@ -226,13 +279,27 @@ searchBox.addEventListener('keypress', function (event) { // event.preventDefaul
         saveSearch(search_history);
         const plantArray = sortTrefleAreaSearch(searchResults[0])
         displayPlantInfo(plantArray);
-        console.log('::KEYBOARD:: City Saved To History: ', plantName);
+        console.log('Search History Saved', plantName);
         searchBox.value = ''
         findPlants()
         getQuote()
     }
 
 })
+
+function addToFavorites(plantName) {
+  if (!localStorage.getItem("favorite-plant")) {
+    let plantStorage = [];
+    plantStorage.push(plantName);
+    localStorage.setItem("favorite-plant", JSON.stringify(plantStorage));
+  } else {
+    let plantStorage = JSON.parse(localStorage.getItem("favorite-plant"));
+    if (!plantStorage.includes(plantName)) {
+      plantStorage.push(plantName);
+      localStorage.setItem("favorite-plant", JSON.stringify(plantStorage));
+    }
+  }
+}
 
 function getFavorites(){
     let favorites = JSON.parse(localStorage.getItem('favorite-plant'))
