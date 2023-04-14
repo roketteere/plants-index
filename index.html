@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Fruktur&family=Gochi+Hand&family=Lily+Script+One&family=Montserrat:wght@500&display=swap"
-rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Fruktur&family=Gochi+Hand&family=Lily+Script+One&family=Montserrat:wght@500&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
     <!-- materialize css -->
     <link
       type="text/css"
       rel="stylesheet"
-      href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"
-    />
+      href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Document</title>
+    <title>Parks & Plants</title>
   </head>
   <body>
     <header>
@@ -38,102 +38,92 @@ rel="stylesheet">
         </nav>
       </div>
     </header>
-    <main>
-      <!-- Hero section -->
-      <div class="responsive-img" id="hero"></div>
-      <!-- card in middle with search form -->
-      <div class="find-plants-container">
-        <div class="find-plants hoverable">
-          <div class="h2">Enter a National Park Here:</div>
-          <form class="" id="" action="">
-            <input
-              id="place-search-input"
-              type="text"
-              placeholder="park name"
-            />
-          </form>
-          <button class="" id="search-button">Search</button>
+    <!-- Hero section -->
+    <div class="responsive-img" id="hero"></div>
+    <!-- card in middle with search form -->
+    <div class="find-plants-container">
+      <div class="find-plants hoverable">
+        <div class="h2">Enter a National Park Here:</div>
+        <form class="" id="" action="">
+          <input id="place-search-input" type="text" placeholder="park name" />
+        </form>
+        <button class="" id="search-button">Search</button>
+      </div>
+    </div>
+    <div class="">
+      <!-- modal button -->
+      <div class="fixed-action-btn modal-search-button hide">
+        <a class="btn-floating btn-large blue">
+          <i class="large material-icons">search</i>
+        </a>
+      </div>
+      <!-- search modal -->
+      <div class="flex-bullseye modal-background qmodal hide" id="search-modal">
+        <div class="search-modal-container">
+          <div class="search-modal">
+            <div class="search-modal-banner">
+              <div class="h2 search-modal-title">
+                Enter a National Park Here:
+              </div>
+              <div class="close-btn-small" id="close-button">+</div>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- modals n things -->
-      <div class="">
-        <!-- modal button -->
-        <div class="fixed-action-btn modal-search-button hide">
-          <a class="btn-floating btn-large blue">
-            <i class="large material-icons">search</i>
-          </a>
-        </div>
-        <!-- search modal -->
-        <div class="flex-bullseye modal-background qmodal hide" id="search-modal">
-          <div class="search-modal-container">
-            <div class="search-modal">
-              <div class="search-modal-banner">
-                <div class="h2 search-modal-title">Enter a National Park Here:</div>
-                <div class="close-btn-small" id="close-button">+</div>
-        <!-- example card -->
+    </div>
+    <!-- example card -->
+    <div class="search-modal-body">
+      <div class="search-form">
+        <form class="" id="" action="">
+          <input id="place-search-input3" type="text" placeholder="park name" />
+        </form>
+        <button class="" id="search-button2">Search</button>
       </div>
-      <div class="search-modal-body">
-        <div class="search-form">
-                  <form class="" id="" action="">
-                    <input
-                      id="place-search-input"
-                      type="text"
-                      placeholder="park name"
-                      />
-                    </form>
-                    <button class="" id="search-button2">Search</button>
-                  </div>
-                  <div class="history"></div>
-                </div>
-              </div>
+      <div class="history"></div>
+    </div>
+    <div
+      class="flex-bullseye modal-background qmodal hide"
+      id="plant-info-modal">
+      <!-- modal window -->
+      <div class="modal-house">
+        <div class="modal-banner">
+          <div class="modal-title">
+            <div class="common-name">Common</div>
+            <div class="scientific">Scientific scientificus</div>
+          </div>
+          <div class="close-btn" id="close-button2">+</div>
+        </div>
+        <div class="modal-content">
+          <div class="modal-column-img">
+            <img src="assets/img/background.jpg" alt="" />
+          </div>
+          <div class="modal-column-text">
+            <div class="list-row-light">
+              <div class="column-text-list1">Taxonomy</div>
+              <div class="column-text-list2">taxtax</div>
             </div>
-      <!-- plant info modal -->
-        <!-- modal background -->
-        <div class="flex-bullseye modal-background qmodal hide" id="plant-info-modal">
-          <!-- modal window -->
-          <div class="modal-house">
-            <div class="modal-banner">
-              <div class="modal-title">
-                <div class="common-name">Common</div>
-                <div class="scientific">Scientific scientificus</div>
-              </div>
-              <div class="close-btn" id="close-button">+</div>
+            <div class="list-row-dark">
+              <div class="column-text-list1">Habitat</div>
+              <div class="column-text-list2">chuck e cheese</div>
             </div>
-            <div class="modal-content">
-              <div class="modal-column-img">
-                <img src="assets/img/background.jpg" alt="" />
-              </div>
-              <div class="modal-column-text">
-                <div class="list-row-light">
-                  <div class="column-text-list1">Taxonomy</div>
-                  <div class="column-text-list2">taxtax</div>
-                </div>
-                <div class="list-row-dark">
-                  <div class="column-text-list1">Habitat</div>
-                  <div class="column-text-list2">chuck e cheese</div>
-                </div>
-                <div class="list-row-light">
-                  <div class="column-text-list1">Edibility</div>
-                  <div class="column-text-list2">this will kill you</div>
-                </div>
-                <div class="list-row-dark bottom">
-                  <div class="column-text-list1">Locations</div>
-                  <div class="column-text-list2">
-                    your house, my house, jail, quiznos
-                  </div>
-                </div>
+            <div class="list-row-light">
+              <div class="column-text-list1">Edibility</div>
+              <div class="column-text-list2">this will kill you</div>
+            </div>
+            <div class="list-row-dark bottom">
+              <div class="column-text-list1">Locations</div>
+              <div class="column-text-list2">
+                your house, my house, jail, quiznos
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- example card -->
-      <div class="row" id="results-page">
-    </main>
-    <footer></footer>
-    <!-- <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script> -->
-    <script src="assets/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="./assets/style.css"></script> -->
+    </div>
+    <div class="row" id="results-page"></div>
+    <footer>
+      <script src="assets/js/script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </footer>
   </body>
 </html>
