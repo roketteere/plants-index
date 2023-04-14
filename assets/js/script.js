@@ -319,10 +319,13 @@ searchButton.addEventListener('click', function (event) {
     event.target;
     saveSearch(search_history);
     addToHistory(plantName);
+    const plantArray = sortTrefleAreaSearch(searchResults[0])
+    displayPlantInfo(plantArray);
     // fetchNationParkAPI(plantName);
     console.log('City Saved To History: ', plantName);
     searchBox.value = ''
     findPlants()
+    getQuote()
 
 
 });
