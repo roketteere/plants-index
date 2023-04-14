@@ -287,6 +287,7 @@ searchBox.addEventListener('keypress', function (event) { // event.preventDefaul
 
 })
 
+
 function addToFavorites(plantName) {
   if (!localStorage.getItem("favorite-plant")) {
     let plantStorage = [];
