@@ -1,5 +1,9 @@
 {
 "california": [
+    {
+"state":"california"
+}
+,
 {
 "id": 109482,
 "common_name": "Common nettle",
@@ -1664,7 +1668,10 @@
 "first": "/api/v1/plants?page=1&zone_id=CAL",
 "next": "/api/v1/plants?page=2&zone_id=CAL",
 "last": "/api/v1/plants?page=341&zone_id=CAL"
-},
+}
+,
+"state":"california"
+,
 "meta": {
 "total": 6802
 }
